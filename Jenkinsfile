@@ -1,19 +1,20 @@
 //Declartive scripting 
-pipeline{
-	agent any{
-		stages{
-			stage ('Build'){
-				echo " Build"
+pipeline {
+	agent any 
+		stages {
+			stage ('Build') {
+				steps {
+					echo " Build"
 			}
 		}
-		stages{
-			stage ('Test'){
-				echo "Test"
+			stage ('Test') {
+				steps { 
+					echo "Test"
 			}
 		}
-		stages{
-			stage ('Intergration Test'){
-				echo "IntegrationTest"
+			stage ('Intergration Test') {
+				steps {
+					echo "IntegrationTest"
 			}
 		}
 	}
