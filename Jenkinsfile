@@ -20,13 +20,13 @@ pipeline {
 	}	
 	post { 
 			always {
-				echo 'run always message '
+				echo 'Hi "run always message " if it is successful or not  '
 			}
 			success {
-				echo 'Sucessfull message'
+				echo 'Sucessfull message, Runs after the build is sucess'
 			}
 			failure {
-				echo 'UnSuccessfull message'
+				echo 'UnSuccessfull message, prints if there is any failure on the build '
 		}
 	}	
 }
