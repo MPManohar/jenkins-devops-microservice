@@ -1,10 +1,11 @@
 //Declartive scripting 
 pipeline {
-	agent any 
+	//agent any
+	agent { docker { image 'maven:3.6.3' } } 
 		stages {
 			stage ('Build') {
 				steps {
-					echo " Build"
+					sh 'maven --version'
 			}
 		}
 			stage ('Test') {
@@ -18,15 +19,5 @@ pipeline {
 			}
 		}
 	}	
-	post { 
-			always {
-				echo 'Hi "run always message " if it is successful or not  '
-			}
-			success {
-				echo 'Sucessfull message, Runs after the build is sucess'
-			}
-			failure {
-				echo 'UnSuccessfull message, prints if there is any failure on the build '
-		}
-	}	
+	
 }
