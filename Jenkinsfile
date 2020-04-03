@@ -47,14 +47,14 @@ pipeline {
 			steps {
 				// docker build -t m01051980/currency-exchange-devops:$env.BUILD_TAG
 				script{
-					docker.build("m01051980/currency-exchange-devops:$env.BUILD_TAG")
+					dockerImage = docker.build("m01051980/currency-exchange-devops:$env.BUILD_TAG")
 				}
 			}
 		}
 		stage ('Push Docker Image') {
 			steps {
 				script {
-					docker.withRegistry( '', 'dockerhub') {
+					docker.withRegistry('', 'dockerhub') {
 					dockerImage.push();
 					dockerImage.push('latest');
 					}
@@ -62,5 +62,4 @@ pipeline {
 			}
 		}
 	}	
-
 }
